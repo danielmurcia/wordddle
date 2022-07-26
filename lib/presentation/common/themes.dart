@@ -6,7 +6,7 @@ ThemeData appTheme() {
   return ThemeData(
     fontFamily: "SourceSansPro",
     brightness: Brightness.dark,
-    canvasColor: AppColors.darkGrey,
+    canvasColor: AppColors.background,
     colorScheme: ColorScheme(
       brightness: Brightness.dark,
       primary: AppColors.primary,
@@ -17,13 +17,14 @@ ThemeData appTheme() {
       surface: AppColors.primary,
       onSurface: AppColors.white,
       onError: AppColors.lightGrey,
-      background: AppColors.darkGrey,
+      background: AppColors.background,
       onBackground: AppColors.lightGrey,
     ),
     textTheme: TextTheme(
-      headline1: AppFonts.headline,
-      bodyText1: AppFonts.bodyText1,
-      bodyText2: AppFonts.bodyText2,
+      displayLarge: AppFonts.display,
+      headlineLarge: AppFonts.headline,
+      bodyLarge: AppFonts.bodyText1,
+      bodyMedium: AppFonts.bodyText2,
     ),
     progressIndicatorTheme: ProgressIndicatorThemeData(
       color: AppColors.secondary,

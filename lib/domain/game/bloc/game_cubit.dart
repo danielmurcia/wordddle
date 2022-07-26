@@ -45,7 +45,8 @@ class GameCubit extends Cubit<GameState> {
 
         emit(GameOver(tries, incorrectLetters));
       } else {
-        emit(InexistentWord(tries, incorrectLetters));
+        currentTry = '';
+        emit(NonExistentWord(tries, incorrectLetters));
       }
     });
   }

@@ -45,6 +45,9 @@ class _GameScreen extends StatelessWidget {
               case GameOver:
                 _showSnackBar(context, 'You lost :(');
                 break;
+              case NonExistentWord:
+                _showSnackBar(context, 'Word doesn\'t exists');
+                break;
             }
             return Column(
               children: [

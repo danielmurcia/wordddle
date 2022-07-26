@@ -35,7 +35,7 @@ class GameOver extends GameState {
       : super(tries, '', incorrectLetters);
 }
 
-class InexistentWord extends GameState {
-  InexistentWord(List<WordGuess> tries, Set<String> incorrectLetters)
+class NonExistentWord extends GameState {
+  NonExistentWord(List<WordGuess> tries, Set<String> incorrectLetters)
       : super(tries, '', incorrectLetters);
 }

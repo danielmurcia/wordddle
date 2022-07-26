@@ -11,30 +11,46 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Wordddle!'),
-      ),
       body: Padding(
         padding: const EdgeInsets.all(AppDimens.screenPadding),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            ElevatedButton(
-              onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(builder: (_) => GameScreen()),
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                flex: 1,
+                child: Center(
+                  child: Text(
+                    'Wordddle!',
+                    style: Theme.of(context).textTheme.displayLarge,
+                  ),
+                ),
               ),
-              child: Text('Play today\'s game'),
-            ),
-            ElevatedButton(
-              onPressed: () => Platform.isIOS
-                  ? showCupertinoDialog(
-                      context: context, builder: _iosStatsDialog(context))
-                  : showDialog(
-                      context: context, builder: _materialStatsDialog(context)),
-              child: Text('Your stats'),
-            ),
-          ],
+              Expanded(
+                flex: 1,
+                child: Column(
+                  children: [
+                    ElevatedButton(
+                      onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(builder: (_) => GameScreen()),
+                      ),
+                      child: Text('Play today\'s game'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () => Platform.isIOS
+                          ? showCupertinoDialog(
+                              context: context,
+                              builder: _iosStatsDialog(context))
+                          : showDialog(
+                              context: context,
+                              builder: _materialStatsDialog(context)),
+                      child: Text('Your stats'),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -45,7 +61,7 @@ class HomeScreen extends StatelessWidget {
           title: Text('Your stats'),
           actions: [
             CupertinoDialogAction(
-              onPressed: () {},
+              onPressed: () => Navigator.pop(context, 'CLOSE'),
               child: Text('Close'),
             ),
           ],
@@ -57,8 +73,12 @@ class HomeScreen extends StatelessWidget {
           title: Text('Your stats'),
           actions: [
             TextButton(
-              onPressed: () {},
-              child: Text('Close'),
+              onPressed: () => Navigator.pop(context, 'CLOSE'),
+              child: Text(
+                'CLOSE',
+                style:
+                    TextStyle(color: Theme.of(context).colorScheme.onPrimary),
+              ),
             ),
           ],
         );

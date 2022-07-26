@@ -10,6 +10,7 @@ Open source Wordddle game
     - Stats usecases
         - Save on game over
         - Load: Streak, Won (per #tries) / Lost
+    - Inject UseCases so current game is not deleted when coming back to home screen
     
 - Presentation layer
     - Beautify UI :/

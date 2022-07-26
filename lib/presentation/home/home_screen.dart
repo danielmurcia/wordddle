@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wordddle/presentation/common/dimens.dart';
 import 'package:wordddle/presentation/game/game_screen.dart';
@@ -23,9 +26,41 @@ class HomeScreen extends StatelessWidget {
               ),
               child: Text('Play today\'s game'),
             ),
+            ElevatedButton(
+              onPressed: () => Platform.isIOS
+                  ? showCupertinoDialog(
+                      context: context, builder: _iosStatsDialog(context))
+                  : showDialog(
+                      context: context, builder: _materialStatsDialog(context)),
+              child: Text('Your stats'),
+            ),
           ],
         ),
       ),
     );
+  }
+
+  WidgetBuilder _iosStatsDialog(BuildContext context) {
+    return (context) => CupertinoAlertDialog(
+          title: Text('Your stats'),
+          actions: [
+            CupertinoDialogAction(
+              onPressed: () {},
+              child: Text('Close'),
+            ),
+          ],
+        );
+  }
+
+  WidgetBuilder _materialStatsDialog(BuildContext context) {
+    return (context) => AlertDialog(
+          title: Text('Your stats'),
+          actions: [
+            TextButton(
+              onPressed: () {},
+              child: Text('Close'),
+            ),
+          ],
+        );
   }
 }

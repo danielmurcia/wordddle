@@ -25,6 +25,21 @@ class GameCubit extends Cubit<GameState> {
     assert(word.length == 5);
   }
 
+  void keyPressed(String char) {
+    log('key pressed: $char');
+    switch (char) {
+      case '>':
+        _checkWord();
+        break;
+      case '<':
+        _removeChar();
+        break;
+      default:
+        _addChar(char);
+        break;
+    }
+  }
+
   void _checkWord() async {
     Either<Failure, bool> wordExists = await _repository.wordExists(currentTry);
 
@@ -49,21 +64,6 @@ class GameCubit extends Cubit<GameState> {
         emit(NonExistentWord(tries, incorrectLetters));
       }
     });
-  }
-
-  void keyPressed(String char) {
-    log('key pressed: $char');
-    switch (char) {
-      case '>':
-        _checkWord();
-        break;
-      case '<':
-        _removeChar();
-        break;
-      default:
-        _addChar(char);
-        break;
-    }
   }
 
   void _addChar(String char) {

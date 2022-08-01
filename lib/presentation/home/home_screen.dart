@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:wordddle/presentation/common/dimens.dart';
 import 'package:wordddle/presentation/game/game_screen.dart';
+import 'package:wordddle/presentation/stats/stats_view.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -71,6 +72,7 @@ class HomeScreen extends StatelessWidget {
   WidgetBuilder _materialStatsDialog(BuildContext context) {
     return (context) => AlertDialog(
           title: Text('Your stats'),
+          content: StatsView(),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context, 'CLOSE'),

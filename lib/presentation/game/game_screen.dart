@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wordddle/data/game_api.dart';
-import 'package:wordddle/data/game_repo_impl.dart';
+import 'package:wordddle/data/game/game_api.dart';
+import 'package:wordddle/data/game/game_repo_impl.dart';
 import 'package:wordddle/domain/game/bloc/game_cubit.dart';
 import 'package:wordddle/presentation/common/dimens.dart';
 import 'package:wordddle/presentation/game/board/board.dart';

@@ -16,6 +16,4 @@ Open source Wordddle game
     - Beautify UI :/
     - Game over dialog (Won / Lost)
         - Use stats widget
-    - Stats dialog (On home screen)
-        - Use stats widget
     - Instructions screen/dialog

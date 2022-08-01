@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:wordddle/data/game_api.dart';
-import 'package:wordddle/data/words.dart';
+import 'package:wordddle/data/game/game_api.dart';
+import 'package:wordddle/data/game/words.dart';
 import 'package:wordddle/domain/game/repo/game_repo.dart';
 import 'package:wordddle/domain/models/failure.dart';
 

@@ -13,6 +13,7 @@ class StatsLoading extends StatsState {
   StatsLoading()
       : super(
           UserStats(
+            userId: '',
             gamesPlayed: 0,
             totalWins: 0,
             currentStreak: 0,

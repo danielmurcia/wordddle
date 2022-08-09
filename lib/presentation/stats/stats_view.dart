@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wordddle/data/stats/file_handler.dart';
+import 'package:wordddle/data/stats/stats_repo_impl.dart';
 import 'package:wordddle/domain/models/user_stats.dart';
 import 'package:wordddle/domain/stats/bloc/stats_cubit.dart';
 import 'package:wordddle/presentation/stats/widgets/guess_distribution_bar.dart';
@@ -12,9 +14,9 @@ class StatsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<StatsCubit>(
       create: (_) => StatsCubit(
-          // TODO inject dependencies
-          )
-        ..getUserStats(),
+        // TODO inject dependencies
+        StatsRepositoryImpl(FileHandler.instance),
+      )..getUserStats(),
       child: _StatsView(),
     );
   }

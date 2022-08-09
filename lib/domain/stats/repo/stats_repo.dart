@@ -4,5 +4,5 @@ import 'package:wordddle/domain/models/user_stats.dart';
 
 abstract class StatsRepository {
   Future<Either<Failure, UserStats>> getUserStats();
-  Future<Either<Failure, bool>> saveGame(int guesses); // -1 if lost
+  Future<Either<Failure, bool>> saveGame(UserStats stats);
 }
